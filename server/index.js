@@ -381,9 +381,11 @@ app.get('/proxy/pending-callback', (_req, res) => {
 // ─── Health check ─────────────────────────────────────────────────────────────
 app.get('/health', (_req, res) => res.json({ status: 'ok', port: PORT }));
 
-// ─── Serve Flutter Web Build at http://localhost:4000 ─────────────────────────
+// ─── Serve Flutter Web Build (local build/web + Render-ready server/public) ───
 const flutterWebDir = path.join(__dirname, '..', 'dabi_lab3', 'build', 'web');
+const publicWebDir  = path.join(__dirname, 'public');
 app.use(express.static(flutterWebDir));
+app.use(express.static(publicWebDir));
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {

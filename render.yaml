@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: dabi504-pfm
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: YAPILY_APP_ID
+        sync: false
+      - key: YAPILY_APP_SECRET
+        sync: false

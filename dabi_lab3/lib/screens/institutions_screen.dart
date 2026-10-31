@@ -77,8 +77,9 @@ class _InstitutionsScreenState extends State<InstitutionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
+              'Real Phone (Wi-Fi): http://192.168.0.117:4000/proxy\n'
               'Android Emulator: http://10.0.2.2:4000/proxy\n'
-              'iOS Simulator: http://localhost:4000/proxy',
+              'iOS / Web: http://localhost:4000/proxy',
               style: TextStyle(color: Color(0xFF8B949E), fontSize: 12),
             ),
             const SizedBox(height: 12),

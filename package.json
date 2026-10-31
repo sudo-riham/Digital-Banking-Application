@@ -1,0 +1,16 @@
+{
+  "name": "dabi504-yapily-pfm",
+  "version": "1.0.0",
+  "description": "DABI504 Open Banking & Personal Financial Management App (Render Entrypoint)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "npm install --prefix server"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  }
+}

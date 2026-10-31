@@ -51,8 +51,18 @@ class YapilyService {
     if (customBaseUrl != null && customBaseUrl!.trim().isNotEmpty) {
       return customBaseUrl!.trim();
     }
-    if (!kIsWeb && Platform.isAndroid) {
-      return 'http://10.0.2.2:4000/proxy';
+    if (kIsWeb) {
+      final origin = Uri.base.origin;
+      // When served from the Express server (localhost:4000, LAN IP, tunnel, or cloud host),
+      // use the current browser origin so iPhones/remote devices reach the backend automatically.
+      if (origin.startsWith('http') &&
+          !(Uri.base.host == 'localhost' && Uri.base.port != 4000)) {
+        return '$origin/proxy';
+      }
+      return 'http://localhost:4000/proxy';
+    }
+    if (Platform.isAndroid) {
+      return 'http://192.168.0.117:4000/proxy';
     }
     return 'http://localhost:4000/proxy';
   }
